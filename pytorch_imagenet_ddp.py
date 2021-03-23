@@ -41,8 +41,8 @@ def inf_proc(rank, world_size):
             # scale and normalize to inception_v3 format
             transforms.Resize((299, 299)), 
             transforms.ToTensor(), 
-            # transforms.Normalize(mean=[0.485, 0.456, 0.406], 
-            #                    std=[0.229, 0.224, 0.225])
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], 
+                                 std=[0.229, 0.224, 0.225])
             ]) 
     print(f'{rank} started.')
     dataset = datasets.ImageNet(root=datapath, split="val", transform=transform)
